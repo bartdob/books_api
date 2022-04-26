@@ -4,7 +4,7 @@ class Books extends Component {
 
     state = {
         books: ([]),
-        token: ''
+        token: '',
     };
 
     loadBooks = () => {

@@ -18,6 +18,7 @@ class Login extends Component {
       data => {
         console.log(data.token);
         this.props.userLogin(data.token);
+        this.props.userPassName(this.state.cridentials.username)        
       }
     ).catch( error => console.log(error))
   }
@@ -61,7 +62,7 @@ class Login extends Component {
               onChange={this.inputChanged} placeholder="password"/>
               <br/>
             </label>
-            <button onClick={this.login}>Login</button>
+            <button onClick={this.login} >Login</button>
             <button onClick={this.signUp}>SignUp</button>
         </div>
   );

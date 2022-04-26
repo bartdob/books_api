@@ -4,12 +4,16 @@ import Login from './components/Login';
 import Books from './components/Books';
 
 function App() {
-
+  const [username, setUsername] = useState('')
   const [token, setToken] = useState('')
   var logginButton, booksButton, logoutButton
 
   const userLogin = (tok) => {
     setToken(tok);
+  }
+
+  const userPassName = (user) => {
+    setUsername(user);
   }
 
   const logout = () => {
@@ -18,9 +22,9 @@ function App() {
   }
 
   if (token === '') {
-    logginButton = <Login userLogin={userLogin}/>;
+    logginButton = <Login userLogin={userLogin} userPassName={userPassName}/>;
   } else {
-    logginButton = <div>You are logged</div>;
+    logginButton = <div>You are logged <strong>{username}</strong></div>;
     booksButton = <Books token={token}/>;
     logoutButton = <a href="/" onClick={logout}>logout</a>
   }
